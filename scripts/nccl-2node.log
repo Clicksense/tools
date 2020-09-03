@@ -1,0 +1,106 @@
+FINISH RUN DIR PREPARATION
+FINISH SSH HELPER SCRIPT DISTRIBUTION
+FINISH SSH KEY DISTRIBUTION
+node1 slots=1
+node2 slots=1
+FINISH MPI HOSTLIST CREATION
+FINISH MPI CONFIG FILE CREATION
+19.10-py3: Pulling from nvidia/tensorflow
+Digest: sha256:0d35081931b0a77b3688132366d0d28595d937236e7265e1ea26e0e1e66ab349
+Status: Image is up to date for nvcr.io/nvidia/tensorflow:19.10-py3
+nvcr.io/nvidia/tensorflow:19.10-py3
+19.10-py3: Pulling from nvidia/tensorflow
+Digest: sha256:0d35081931b0a77b3688132366d0d28595d937236e7265e1ea26e0e1e66ab349
+Status: Image is up to date for nvcr.io/nvidia/tensorflow:19.10-py3
+nvcr.io/nvidia/tensorflow:19.10-py3
+FINISH IMAGE PULLING
+a818d8fccf1ae1f9bfc7d33c5860ccd313f0a7169c4436879566fb93f32de07b
+70cbeb7b4471488a7e152e7a5eaa62a7b9581c0567d9adfe72f94c2a33c9dfc4
+FINISH CONTAINER CREATION
+[node1:00088] WARNING: local probe returned unhandled shell:unknown assuming bash
+::sshentry: entered node2
+::sshentry: running     PATH=/usr/local/mpi/bin:$PATH ; export PATH ; LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH ; export LD_LIBRARY_PATH ; DYLD_LIBRARY_PATH=/usr/local/mpi/lib:$DYLD_LIBRARY_PATH ; export DYLD_LIBRARY_PATH ;   /usr/local/mpi/bin/orted -mca ess "env" -mca ess_base_jobid "1261436928" -mca ess_base_vpid 1 -mca ess_base_num_procs "2" -mca orte_node_regex "node[1:1-2]@0(2)" -mca orte_hnp_uri "1261436928.0;tcp://10.19.203.22,192.168.99.1:56791;ud://494.1.1" -mca plm "rsh" -mca mca_base_param_files "/dev/shm/mpi_click/nccl-test/mca_params.conf" -mca btl_vader_single_copy_mechanism "none" -mca hwloc_base_binding_policy "none" -mca rmaps_base_mapping_policy "slot" -mca pmix "^s1,s2,cray,isolated"
+--------------------------------------------------------------------------
+WARNING: There are more than one active ports on host 'node2', but the
+default subnet GID prefix was detected on more than one of these
+ports.  If these ports are connected to different physical IB
+networks, this configuration will fail in Open MPI.  This version of
+Open MPI requires that every physically separate IB subnet that is
+used between connected MPI processes must have different subnet ID
+values.
+
+Please see this FAQ entry for more details:
+
+  http://www.open-mpi.org/faq/?category=openfabrics#ofa-default-subnet-gid
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_default_gid_prefix to 0.
+--------------------------------------------------------------------------
+# nThread 1 nGpus 1 minBytes 8 maxBytes 134217728 step: 2(factor) warmup iters: 5 iters: 20 validation: 1 
+#
+# Using devices
+#   Rank  0 Pid     98 on      node1 device  0 [0x06] Tesla V100-SXM2-16GB
+#   Rank  1 Pid    102 on      node2 device  0 [0x06] Tesla V100-SXM2-16GB
+node1:98:98 [0] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:98:98 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:98:98 [0] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node2:102:102 [0] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]vetha4edee6:fe80::4c08:93ff:fe4b:ca01%vetha4edee6<0>
+node2:102:102 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:102:102 [0] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+NCCL version 2.4.8+cuda10.1
+node2:102:111 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff00,000fffff
+node1:98:108 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff00,000fffff
+node1:98:108 [0] NCCL INFO CUDA Dev 0[0], IB NIC distance :  PHB SYS PIX SYS
+node2:102:111 [0] NCCL INFO CUDA Dev 0[0], IB NIC distance :  PHB SYS PIX SYS
+node1:98:108 [0] NCCL INFO Channel 00 :    0   1
+node1:98:108 [0] NCCL INFO Channel 01 :    0   1
+node2:102:111 [0] NCCL INFO Ring 00 : 0 -> 1 [receive] via NET/IB/2/GDRDMA
+node1:98:108 [0] NCCL INFO Ring 00 : 1 -> 0 [receive] via NET/IB/2/GDRDMA
+node2:102:111 [0] NCCL INFO Ring 00 : 1 -> 0 [send] via NET/IB/2/GDRDMA
+node1:98:108 [0] NCCL INFO Ring 00 : 0 -> 1 [send] via NET/IB/2/GDRDMA
+node2:102:111 [0] NCCL INFO Ring 01 : 0 -> 1 [receive] via NET/IB/2/GDRDMA
+node1:98:108 [0] NCCL INFO Ring 01 : 1 -> 0 [receive] via NET/IB/2/GDRDMA
+node2:102:111 [0] NCCL INFO Ring 01 : 1 -> 0 [send] via NET/IB/2/GDRDMA
+node1:98:108 [0] NCCL INFO Ring 01 : 0 -> 1 [send] via NET/IB/2/GDRDMA
+node2:102:111 [0] NCCL INFO comm 0x7f080c001fd0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 - Init COMPLETE
+node1:98:108 [0] NCCL INFO Using 256 threads, Min Comp Cap 7, Trees disabled
+node1:98:108 [0] NCCL INFO comm 0x7fd9b0001fd0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 - Init COMPLETE
+#
+#                                             out-of-place                       in-place          
+#       size         count    type     time   algbw   busbw  error     time   algbw   busbw  error
+#        (B)    (elements)             (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)       
+node1:98:98 [0] NCCL INFO Launch mode Parallel
+           8             1   float    14.37    0.00    0.00  0e+00    13.07    0.00    0.00  0e+00
+          16             2   float    21.13    0.00    0.00  0e+00    16.58    0.00    0.00  0e+00
+          32             4   float    20.73    0.00    0.00  0e+00    16.60    0.00    0.00  0e+00
+          64             8   float    12.98    0.00    0.00  0e+00    18.68    0.00    0.00  0e+00
+         128            16   float    19.24    0.01    0.00  0e+00    16.55    0.01    0.00  0e+00
+         256            32   float    19.90    0.01    0.01  0e+00    17.75    0.01    0.01  0e+00
+         512            64   float    21.81    0.02    0.01  0e+00    15.45    0.03    0.02  0e+00
+        1024           128   float    21.70    0.05    0.02  0e+00    14.12    0.07    0.04  0e+00
+        2048           256   float    18.82    0.11    0.05  0e+00    14.72    0.14    0.07  0e+00
+        4096           512   float    18.02    0.23    0.11  0e+00    18.56    0.22    0.11  0e+00
+        8192          1024   float    21.64    0.38    0.19  0e+00    16.69    0.49    0.25  0e+00
+       16384          2048   float    22.23    0.74    0.37  0e+00    17.46    0.94    0.47  0e+00
+       32768          4096   float    26.91    1.22    0.61  0e+00    19.82    1.65    0.83  0e+00
+       65536          8192   float    34.75    1.89    0.94  0e+00    28.39    2.31    1.15  0e+00
+      131072         16384   float    52.52    2.50    1.25  0e+00    42.39    3.09    1.55  0e+00
+      262144         32768   float    59.28    4.42    2.21  0e+00    54.93    4.77    2.39  0e+00
+      524288         65536   float    74.40    7.05    3.52  0e+00    70.22    7.47    3.73  0e+00
+     1048576        131072   float    113.1    9.27    4.64  0e+00    105.1    9.98    4.99  0e+00
+     2097152        262144   float    185.7   11.30    5.65  0e+00    174.6   12.01    6.00  0e+00
+     4194304        524288   float    336.4   12.47    6.23  0e+00    307.4   13.64    6.82  0e+00
+     8388608       1048576   float    527.4   15.91    7.95  0e+00    515.4   16.28    8.14  0e+00
+    16777216       2097152   float   1049.2   15.99    7.99  0e+00    996.9   16.83    8.41  0e+00
+    33554432       4194304   float   2076.2   16.16    8.08  0e+00   1984.8   16.91    8.45  0e+00
+    67108864       8388608   float   4038.2   16.62    8.31  0e+00   3839.6   17.48    8.74  0e+00
+   134217728      16777216   float   7740.6   17.34    8.67  0e+00   7649.2   17.55    8.77  0e+00
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 2.75557 
+#
+[node1:00088] 2 more processes have sent help message help-mpi-btl-openib.txt / default subnet prefix
+[node1:00088] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+FINISH TRAINING
+nccl-test
+nccl-test
+FINISH ENV CLEAN-UP

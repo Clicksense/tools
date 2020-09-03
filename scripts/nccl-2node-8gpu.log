@@ -1,0 +1,506 @@
+FINISH RUN DIR PREPARATION
+FINISH SSH HELPER SCRIPT DISTRIBUTION
+FINISH SSH KEY DISTRIBUTION
+node1 slots=8
+node2 slots=8
+FINISH MPI HOSTLIST CREATION
+FINISH MPI CONFIG FILE CREATION
+19.10-py3: Pulling from nvidia/tensorflow
+Digest: sha256:0d35081931b0a77b3688132366d0d28595d937236e7265e1ea26e0e1e66ab349
+Status: Image is up to date for nvcr.io/nvidia/tensorflow:19.10-py3
+nvcr.io/nvidia/tensorflow:19.10-py3
+19.10-py3: Pulling from nvidia/tensorflow
+Digest: sha256:0d35081931b0a77b3688132366d0d28595d937236e7265e1ea26e0e1e66ab349
+Status: Image is up to date for nvcr.io/nvidia/tensorflow:19.10-py3
+nvcr.io/nvidia/tensorflow:19.10-py3
+FINISH IMAGE PULLING
+c2103aa1e31eaa8f775656e9cebc490021fce63d9e7917804f0d14a6ee082d26
+4a9a8a9a218551ed7d54e095433e95042350b3c34d39fa7d5dbb326940e25e79
+FINISH CONTAINER CREATION
+[node1:00088] WARNING: local probe returned unhandled shell:unknown assuming bash
+::sshentry: entered node2
+::sshentry: running     PATH=/usr/local/mpi/bin:$PATH ; export PATH ; LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH ; export LD_LIBRARY_PATH ; DYLD_LIBRARY_PATH=/usr/local/mpi/lib:$DYLD_LIBRARY_PATH ; export DYLD_LIBRARY_PATH ;   /usr/local/mpi/bin/orted -mca ess "env" -mca ess_base_jobid "1261436928" -mca ess_base_vpid 1 -mca ess_base_num_procs "2" -mca orte_node_regex "node[1:1-2]@0(2)" -mca orte_hnp_uri "1261436928.0;tcp://10.19.203.22,192.168.99.1:54359;ud://502.1.1" -mca plm "rsh" -mca mca_base_param_files "/dev/shm/mpi_click/nccl-test/mca_params.conf" -mca btl_vader_single_copy_mechanism "none" -mca hwloc_base_binding_policy "none" -mca rmaps_base_mapping_policy "slot" -mca pmix "^s1,s2,cray,isolated"
+--------------------------------------------------------------------------
+WARNING: There are more than one active ports on host 'node2', but the
+default subnet GID prefix was detected on more than one of these
+ports.  If these ports are connected to different physical IB
+networks, this configuration will fail in Open MPI.  This version of
+Open MPI requires that every physically separate IB subnet that is
+used between connected MPI processes must have different subnet ID
+values.
+
+Please see this FAQ entry for more details:
+
+  http://www.open-mpi.org/faq/?category=openfabrics#ofa-default-subnet-gid
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_default_gid_prefix to 0.
+--------------------------------------------------------------------------
+# nThread 1 nGpus 1 minBytes 8 maxBytes 134217728 step: 2(factor) warmup iters: 5 iters: 20 validation: 1 
+#
+# Using devices
+#   Rank  0 Pid     98 on      node1 device  0 [0x06] Tesla V100-SXM2-16GB
+#   Rank  1 Pid     99 on      node1 device  1 [0x07] Tesla V100-SXM2-16GB
+#   Rank  2 Pid    100 on      node1 device  2 [0x0a] Tesla V100-SXM2-16GB
+#   Rank  3 Pid    101 on      node1 device  3 [0x0b] Tesla V100-SXM2-16GB
+#   Rank  4 Pid    102 on      node1 device  4 [0x85] Tesla V100-SXM2-16GB
+#   Rank  5 Pid    103 on      node1 device  5 [0x86] Tesla V100-SXM2-16GB
+#   Rank  6 Pid    104 on      node1 device  6 [0x89] Tesla V100-SXM2-16GB
+#   Rank  7 Pid    105 on      node1 device  7 [0x8a] Tesla V100-SXM2-16GB
+#   Rank  8 Pid    104 on      node2 device  0 [0x06] Tesla V100-SXM2-16GB
+#   Rank  9 Pid    105 on      node2 device  1 [0x07] Tesla V100-SXM2-16GB
+#   Rank 10 Pid    106 on      node2 device  2 [0x0a] Tesla V100-SXM2-16GB
+#   Rank 11 Pid    107 on      node2 device  3 [0x0b] Tesla V100-SXM2-16GB
+#   Rank 12 Pid    108 on      node2 device  4 [0x85] Tesla V100-SXM2-16GB
+#   Rank 13 Pid    109 on      node2 device  5 [0x86] Tesla V100-SXM2-16GB
+#   Rank 14 Pid    110 on      node2 device  6 [0x89] Tesla V100-SXM2-16GB
+#   Rank 15 Pid    111 on      node2 device  7 [0x8a] Tesla V100-SXM2-16GB
+node1:98:98 [0] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:98:98 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:98:98 [0] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+NCCL version 2.4.8+cuda10.1
+node2:104:104 [0] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:104:104 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:110:110 [6] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:110:110 [6] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:110:110 [6] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:104:104 [0] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:108:108 [4] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:108:108 [4] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:106:106 [2] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:106:106 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:108:108 [4] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:107:107 [3] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:107:107 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:111:111 [7] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:105:105 [1] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:111:111 [7] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:105:105 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:109:109 [5] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.23<0> [1]vethe015075:fe80::4007:b4ff:fe98:868e%vethe015075<0> [2]veth742d53e:fe80::48a8:a0ff:feeb:f05e%veth742d53e<0> [3]veth90f0277:fe80::9cb0:5ff:fed4:7f15%veth90f0277<0>
+node2:109:109 [5] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:106:106 [2] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:107:107 [3] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:105:105 [1] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:111:111 [7] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node2:109:109 [5] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.23<0>
+node1:99:99 [1] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:99:99 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node2:110:152 [6] NCCL INFO Setting affinity for GPU 6 to ffff,f00000ff,fff00000
+node2:104:158 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff00,000fffff
+node1:99:99 [1] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node1:103:103 [5] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:103:103 [5] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:98:143 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff00,000fffff
+node1:102:102 [4] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:102:102 [4] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:103:103 [5] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node1:105:105 [7] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:105:105 [7] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:104:104 [6] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:104:104 [6] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:100:100 [2] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:101:101 [3] NCCL INFO Bootstrap : Using [0]enp1s0f0:10.19.203.22<0> [1]veth010333e:fe80::d897:deff:fe67:f262%veth010333e<0>
+node1:100:100 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:101:101 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+node1:102:102 [4] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node2:108:178 [4] NCCL INFO Setting affinity for GPU 4 to ffff,f00000ff,fff00000
+node1:101:101 [3] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node1:104:104 [6] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node1:105:105 [7] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node1:100:100 [2] NCCL INFO NET/IB : Using [0]mlx5_1:1/IB [1]mlx5_3:1/IB [2]mlx5_0:1/IB [3]mlx5_2:1/IB ; OOB enp1s0f0:10.19.203.22<0>
+node2:106:179 [2] NCCL INFO Setting affinity for GPU 2 to 0fffff00,000fffff
+node2:107:180 [3] NCCL INFO Setting affinity for GPU 3 to 0fffff00,000fffff
+node2:105:181 [1] NCCL INFO Setting affinity for GPU 1 to 0fffff00,000fffff
+node2:111:182 [7] NCCL INFO Setting affinity for GPU 7 to ffff,f00000ff,fff00000
+node2:109:183 [5] NCCL INFO Setting affinity for GPU 5 to ffff,f00000ff,fff00000
+node1:99:172 [1] NCCL INFO Setting affinity for GPU 1 to 0fffff00,000fffff
+node1:103:173 [5] NCCL INFO Setting affinity for GPU 5 to ffff,f00000ff,fff00000
+node1:104:174 [6] NCCL INFO Setting affinity for GPU 6 to ffff,f00000ff,fff00000
+node1:105:175 [7] NCCL INFO Setting affinity for GPU 7 to ffff,f00000ff,fff00000
+node1:101:176 [3] NCCL INFO Setting affinity for GPU 3 to 0fffff00,000fffff
+node1:100:177 [2] NCCL INFO Setting affinity for GPU 2 to 0fffff00,000fffff
+node1:102:178 [4] NCCL INFO Setting affinity for GPU 4 to ffff,f00000ff,fff00000
+node2:111:182 [7] NCCL INFO CUDA Dev 7[7], IB NIC distance :  SYS PIX SYS PHB
+node2:104:158 [0] NCCL INFO CUDA Dev 0[0], IB NIC distance :  PHB SYS PIX SYS
+node2:105:181 [1] NCCL INFO CUDA Dev 1[1], IB NIC distance :  PHB SYS PIX SYS
+node2:106:179 [2] NCCL INFO CUDA Dev 2[2], IB NIC distance :  PIX SYS PHB SYS
+node2:107:180 [3] NCCL INFO CUDA Dev 3[3], IB NIC distance :  PIX SYS PHB SYS
+node2:110:152 [6] NCCL INFO CUDA Dev 6[6], IB NIC distance :  SYS PIX SYS PHB
+node2:109:183 [5] NCCL INFO CUDA Dev 5[5], IB NIC distance :  SYS PHB SYS PIX
+node2:108:178 [4] NCCL INFO CUDA Dev 4[4], IB NIC distance :  SYS PHB SYS PIX
+node1:98:143 [0] NCCL INFO CUDA Dev 0[0], IB NIC distance :  PHB SYS PIX SYS
+node1:100:177 [2] NCCL INFO CUDA Dev 2[2], IB NIC distance :  PIX SYS PHB SYS
+node1:99:172 [1] NCCL INFO CUDA Dev 1[1], IB NIC distance :  PHB SYS PIX SYS
+node1:102:178 [4] NCCL INFO CUDA Dev 4[4], IB NIC distance :  SYS PHB SYS PIX
+node1:103:173 [5] NCCL INFO CUDA Dev 5[5], IB NIC distance :  SYS PHB SYS PIX
+node1:105:175 [7] NCCL INFO CUDA Dev 7[7], IB NIC distance :  SYS PIX SYS PHB
+node1:104:174 [6] NCCL INFO CUDA Dev 6[6], IB NIC distance :  SYS PIX SYS PHB
+node1:101:176 [3] NCCL INFO CUDA Dev 3[3], IB NIC distance :  PIX SYS PHB SYS
+node1:98:143 [0] NCCL INFO Channel 00 :    0   1   5   4   6   7   3  10   8   9  13  12  14  15  11   2
+node1:98:143 [0] NCCL INFO Channel 01 :    0   4   5   7  14  10  11   9   8  12  13  15   6   2   3   1
+node1:98:143 [0] NCCL INFO Channel 02 :    0   3   2   6   4   7   5   1   8  11  10  14  12  15  13   9
+node1:98:143 [0] NCCL INFO Channel 03 :    0   2   1   3   7   6   5  12   8  10   9  11  15  14  13   4
+node1:98:143 [0] NCCL INFO Channel 04 :    0   1   5   4   6   7   3  10   8   9  13  12  14  15  11   2
+node1:98:143 [0] NCCL INFO Channel 05 :    0   4   5   7  14  10  11   9   8  12  13  15   6   2   3   1
+node1:98:143 [0] NCCL INFO Channel 06 :    0   3   2   6   4   7   5   1   8  11  10  14  12  15  13   9
+node1:98:143 [0] NCCL INFO Channel 07 :    0   2   1   3   7   6   5  12   8  10   9  11  15  14  13   4
+node2:106:179 [2] NCCL INFO Ring 00 : 3 -> 10 [receive] via NET/IB/0/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 00 : 11 -> 2 [receive] via NET/IB/0/GDRDMA
+node2:106:179 [2] NCCL INFO Ring 00 : 10[2] -> 8[0] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 00 : 2[2] -> 0[0] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 00 : 14[6] -> 15[7] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 00 : 15[7] -> 11[3] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 00 : 9[1] -> 13[5] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 00 : 8[0] -> 9[1] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 00 : 12[4] -> 14[6] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 00 : 5[5] -> 4[4] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 00 : 4[4] -> 6[6] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 00 : 6[6] -> 7[7] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 00 : 0[0] -> 1[1] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 00 : 7[7] -> 3[3] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 00 : 13[5] -> 12[4] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 00 : 1[1] -> 5[5] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 00 : 11 -> 2 [send] via NET/IB/0/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 00 : 3 -> 10 [send] via NET/IB/0/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 00 : 11[3] -> 15[7] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 00 : 14[6] -> 12[4] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 00 : 3[3] -> 7[7] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 00 : 15[7] -> 14[6] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 00 : 9[1] -> 8[0] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 00 : 8[0] -> 10[2] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 00 : 12[4] -> 13[5] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 00 : 13[5] -> 9[1] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 00 : 5[5] -> 1[1] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 00 : 4[4] -> 5[5] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 00 : 6[6] -> 4[4] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 00 : 0[0] -> 2[2] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 00 : 7[7] -> 6[6] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 00 : 1[1] -> 0[0] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 01 : 7 -> 14 [receive] via NET/IB/1/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 00 : 10 -> 2 [receive] via NET/IB/0/GDRDMA
+node1:104:174 [6] NCCL INFO Ring 01 : 15 -> 6 [receive] via NET/IB/1/GDRDMA
+node2:106:179 [2] NCCL INFO Ring 00 : 10 -> 2 [send] via NET/IB/0/GDRDMA
+node2:110:152 [6] NCCL INFO Ring 01 : 14[6] -> 10[2] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 01 : 11[3] -> 9[1] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 01 : 9[1] -> 8[0] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 01 : 12[4] -> 13[5] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 00 : 2 -> 10 [receive] via NET/IB/0/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 01 : 8[0] -> 12[4] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 01 : 13[5] -> 15[7] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 01 : 3[3] -> 1[1] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 01 : 6[6] -> 2[2] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 01 : 15 -> 6 [send] via NET/IB/1/GDRDMA
+node1:103:173 [5] NCCL INFO Ring 01 : 5[5] -> 7[7] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 01 : 4[4] -> 5[5] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 01 : 0[0] -> 4[4] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 01 : 1[1] -> 0[0] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 01 : 15[7] -> 13[5] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 01 : 9[1] -> 11[3] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 01 : 7 -> 14 [send] via NET/IB/1/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 01 : 8[0] -> 9[1] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 01 : 13[5] -> 12[4] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 01 : 12[4] -> 8[0] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 00 : 2 -> 10 [send] via NET/IB/0/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 02 : 1 -> 8 [receive] via NET/IB/2/GDRDMA
+node1:105:175 [7] NCCL INFO Ring 01 : 7[7] -> 5[5] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 02 : 15[7] -> 13[5] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 02 : 8[0] -> 11[3] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 01 : 5[5] -> 4[4] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 01 : 0[0] -> 1[1] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 01 : 4[4] -> 0[0] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 02 : 12[4] -> 15[7] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 02 : 13[5] -> 9[1] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 01 : 1[1] -> 3[3] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 01 : 10[2] -> 11[3] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 02 : 15[7] -> 12[4] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 01 : 2[2] -> 3[3] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 02 : 9 -> 0 [receive] via NET/IB/2/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 01 : 11[3] -> 10[2] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 01 : 10[2] -> 14[6] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 01 : 14 -> 6 [send] via NET/IB/1/GDRDMA
+node1:98:143 [0] NCCL INFO Ring 02 : 0[0] -> 3[3] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 02 : 7[7] -> 5[5] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 02 : 9 -> 0 [send] via NET/IB/2/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 02 : 11[3] -> 10[2] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 02 : 5[5] -> 1[1] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 02 : 4[4] -> 7[7] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 02 : 13[5] -> 15[7] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 02 : 10[2] -> 14[6] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 01 : 14 -> 6 [receive] via NET/IB/1/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 01 : 3[3] -> 2[2] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 01 : 2[2] -> 6[6] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 02 : 9[1] -> 13[5] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 01 : 6 -> 14 [receive] via NET/IB/1/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 02 : 11[3] -> 8[0] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 03 : 9[1] -> 11[3] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 03 : 13 -> 4 [send] via NET/IB/3/GDRDMA
+node1:105:175 [7] NCCL INFO Ring 02 : 7[7] -> 4[4] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 02 : 1 -> 8 [send] via NET/IB/2/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 02 : 8 -> 0 [send] via NET/IB/2/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 02 : 3[3] -> 2[2] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 01 : 6 -> 14 [send] via NET/IB/1/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 02 : 2[2] -> 6[6] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 02 : 5[5] -> 7[7] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 02 : 1[1] -> 5[5] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 02 : 14[6] -> 12[4] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 02 : 10[2] -> 11[3] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 02 : 8 -> 0 [receive] via NET/IB/2/GDRDMA
+node2:108:178 [4] NCCL INFO Ring 02 : 12[4] -> 14[6] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 02 : 3[3] -> 0[0] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 02 : 6[6] -> 4[4] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 02 : 14[6] -> 10[2] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 02 : 0 -> 8 [receive] via NET/IB/2/GDRDMA
+node2:108:178 [4] NCCL INFO Ring 03 : 5 -> 12 [receive] via NET/IB/3/GDRDMA
+node1:99:172 [1] NCCL INFO Ring 03 : 1[1] -> 3[3] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 03 : 15[7] -> 14[6] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 03 : 11[3] -> 15[7] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 03 : 12[4] -> 8[0] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 03 : 10[2] -> 9[1] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 03 : 14[6] -> 13[5] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 03 : 5 -> 12 [send] via NET/IB/3/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 03 : 11[3] -> 9[1] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 02 : 2[2] -> 3[3] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 03 : 15[7] -> 11[3] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 03 : 9[1] -> 10[2] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 03 : 14[6] -> 15[7] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 02 : 4[4] -> 6[6] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 04 : 15[7] -> 11[3] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 04 : 11 -> 2 [send] via NET/IB/0/GDRDMA
+node1:98:143 [0] NCCL INFO Ring 02 : 0 -> 8 [send] via NET/IB/2/GDRDMA
+node1:104:174 [6] NCCL INFO Ring 02 : 6[6] -> 2[2] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 03 : 8[0] -> 10[2] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 03 : 13 -> 4 [receive] via NET/IB/3/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 03 : 3[3] -> 7[7] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 03 : 7[7] -> 6[6] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 03 : 4[4] -> 0[0] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 03 : 2[2] -> 1[1] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 03 : 13[5] -> 14[6] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 03 : 0[0] -> 2[2] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 03 : 6[6] -> 5[5] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 03 : 10[2] -> 8[0] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 03 : 8[0] -> 12[4] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 04 : 3 -> 10 [receive] via NET/IB/0/GDRDMA
+node2:108:178 [4] NCCL INFO Ring 03 : 12 -> 4 [send] via NET/IB/3/GDRDMA
+node2:105:181 [1] NCCL INFO Ring 04 : 9[1] -> 13[5] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 04 : 14[6] -> 15[7] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 03 : 5[5] -> 6[6] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 04 : 13[5] -> 12[4] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 03 : 3[3] -> 1[1] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 04 : 10[2] -> 8[0] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 04 : 8[0] -> 9[1] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 03 : 7[7] -> 3[3] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 04 : 15[7] -> 14[6] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 04 : 9[1] -> 8[0] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 04 : 8[0] -> 10[2] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 03 : 12 -> 4 [receive] via NET/IB/3/GDRDMA
+node1:99:172 [1] NCCL INFO Ring 03 : 1[1] -> 2[2] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 03 : 2[2] -> 0[0] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 03 : 0[0] -> 4[4] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 03 : 6[6] -> 7[7] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 03 : 4 -> 12 [receive] via NET/IB/3/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 04 : 11 -> 2 [receive] via NET/IB/0/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 04 : 11[3] -> 15[7] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 05 : 11[3] -> 9[1] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 04 : 5[5] -> 4[4] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 04 : 2[2] -> 0[0] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 04 : 3 -> 10 [send] via NET/IB/0/GDRDMA
+node1:99:172 [1] NCCL INFO Ring 04 : 1[1] -> 5[5] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 03 : 4 -> 12 [send] via NET/IB/3/GDRDMA
+node1:105:175 [7] NCCL INFO Ring 04 : 7[7] -> 3[3] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 04 : 2 -> 10 [receive] via NET/IB/0/GDRDMA
+node1:98:143 [0] NCCL INFO Ring 04 : 0[0] -> 1[1] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 05 : 8[0] -> 12[4] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 04 : 6[6] -> 7[7] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 04 : 12[4] -> 14[6] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 04 : 3[3] -> 7[7] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 04 : 13[5] -> 9[1] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 04 : 14[6] -> 12[4] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 04 : 12[4] -> 13[5] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 04 : 4[4] -> 6[6] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 05 : 7 -> 14 [receive] via NET/IB/1/GDRDMA
+node1:99:172 [1] NCCL INFO Ring 04 : 1[1] -> 0[0] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 04 : 7[7] -> 6[6] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 05 : 9[1] -> 8[0] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 04 : 0[0] -> 2[2] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 04 : 2 -> 10 [send] via NET/IB/0/GDRDMA
+node2:110:152 [6] NCCL INFO Ring 05 : 14[6] -> 10[2] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 05 : 15 -> 6 [send] via NET/IB/1/GDRDMA
+node2:109:183 [5] NCCL INFO Ring 05 : 13[5] -> 15[7] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 05 : 12[4] -> 13[5] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 04 : 5[5] -> 1[1] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 04 : 10 -> 2 [receive] via NET/IB/0/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 05 : 3[3] -> 1[1] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 05 : 9[1] -> 11[3] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 04 : 6[6] -> 4[4] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 04 : 4[4] -> 5[5] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 05 : 8[0] -> 9[1] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 04 : 10 -> 2 [send] via NET/IB/0/GDRDMA
+node2:109:183 [5] NCCL INFO Ring 05 : 13[5] -> 12[4] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 05 : 12[4] -> 8[0] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 05 : 0[0] -> 4[4] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 06 : 1 -> 8 [receive] via NET/IB/2/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 06 : 8[0] -> 11[3] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 05 : 15 -> 6 [receive] via NET/IB/1/GDRDMA
+node2:106:179 [2] NCCL INFO Ring 05 : 10[2] -> 11[3] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 06 : 12[4] -> 15[7] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 05 : 15[7] -> 13[5] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 05 : 1[1] -> 0[0] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 05 : 11[3] -> 10[2] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 05 : 10[2] -> 14[6] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 05 : 6[6] -> 2[2] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 05 : 7 -> 14 [send] via NET/IB/1/GDRDMA
+node2:109:183 [5] NCCL INFO Ring 06 : 13[5] -> 9[1] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 05 : 5[5] -> 7[7] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 06 : 15[7] -> 13[5] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 05 : 4[4] -> 5[5] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 06 : 9 -> 0 [send] via NET/IB/2/GDRDMA
+node2:107:180 [3] NCCL INFO Ring 06 : 11[3] -> 10[2] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 05 : 6 -> 14 [receive] via NET/IB/1/GDRDMA
+node2:109:183 [5] NCCL INFO Ring 06 : 13[5] -> 15[7] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 06 : 15[7] -> 12[4] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 06 : 10[2] -> 14[6] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 05 : 2[2] -> 3[3] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 06 : 11[3] -> 8[0] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 05 : 7[7] -> 5[5] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 05 : 1[1] -> 3[3] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 05 : 0[0] -> 1[1] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 05 : 5[5] -> 4[4] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 05 : 4[4] -> 0[0] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 05 : 3[3] -> 2[2] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 06 : 9 -> 0 [receive] via NET/IB/2/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 05 : 2[2] -> 6[6] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 05 : 6 -> 14 [send] via NET/IB/1/GDRDMA
+node2:105:181 [1] NCCL INFO Ring 06 : 9[1] -> 13[5] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 06 : 7[7] -> 5[5] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 05 : 14 -> 6 [receive] via NET/IB/1/GDRDMA
+node1:98:143 [0] NCCL INFO Ring 06 : 0[0] -> 3[3] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 05 : 14 -> 6 [send] via NET/IB/1/GDRDMA
+node2:105:181 [1] NCCL INFO Ring 07 : 9[1] -> 11[3] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 07 : 13 -> 4 [send] via NET/IB/3/GDRDMA
+node2:110:152 [6] NCCL INFO Ring 06 : 14[6] -> 12[4] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 06 : 10[2] -> 11[3] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 06 : 12[4] -> 14[6] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 06 : 14[6] -> 10[2] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 06 : 1 -> 8 [send] via NET/IB/2/GDRDMA
+node1:103:173 [5] NCCL INFO Ring 06 : 5[5] -> 1[1] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 07 : 5 -> 12 [receive] via NET/IB/3/GDRDMA
+node2:111:182 [7] NCCL INFO Ring 07 : 15[7] -> 14[6] via P2P/IPC
+node1:102:178 [4] NCCL INFO Ring 06 : 4[4] -> 7[7] via P2P/IPC
+node2:108:178 [4] NCCL INFO Ring 07 : 12[4] -> 8[0] via P2P/IPC
+node2:106:179 [2] NCCL INFO Ring 07 : 10[2] -> 9[1] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 07 : 14[6] -> 13[5] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 06 : 3[3] -> 2[2] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 06 : 0 -> 8 [receive] via NET/IB/2/GDRDMA
+node1:100:177 [2] NCCL INFO Ring 06 : 2[2] -> 6[6] via P2P/IPC
+node2:110:152 [6] NCCL INFO Ring 07 : 14[6] -> 15[7] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 07 : 11[3] -> 15[7] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 06 : 1[1] -> 5[5] via P2P/IPC
+node2:105:181 [1] NCCL INFO Ring 07 : 9[1] -> 10[2] via P2P/IPC
+node2:111:182 [7] NCCL INFO Ring 07 : 15[7] -> 11[3] via P2P/IPC
+node2:107:180 [3] NCCL INFO Ring 07 : 11[3] -> 9[1] via P2P/IPC
+node2:111:182 [7] NCCL INFO Trees [0] 14->15->11/-1/-1 [1] 13->15->-1/-1/-1 [2] 12->15->13/-1/-1 [3] 11->15->14/-1/-1 [4] 14->15->11/-1/-1 [5] 13->15->-1/-1/-1 [6] 12->15->13/-1/-1 [7] 11->15->14/-1/-1
+node2:107:180 [3] NCCL INFO Trees [0] 15->11->-1/-1/-1 [1] 10->11->9/-1/-1 [2] 8->11->10/-1/-1 [3] 9->11->15/-1/-1 [4] 15->11->-1/-1/-1 [5] 10->11->9/-1/-1 [6] 8->11->10/-1/-1 [7] 9->11->15/-1/-1
+node2:111:182 [7] NCCL INFO comm 0x7f01bc002350 rank 15 nranks 16 cudaDev 7 nvmlDev 7 - Init COMPLETE
+node2:107:180 [3] NCCL INFO comm 0x7f3488002350 rank 11 nranks 16 cudaDev 3 nvmlDev 3 - Init COMPLETE
+node1:105:175 [7] NCCL INFO Ring 06 : 7[7] -> 4[4] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 06 : 5[5] -> 7[7] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 06 : 6[6] -> 4[4] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 06 : 3[3] -> 0[0] via P2P/IPC
+node1:98:143 [0] NCCL INFO Ring 06 : 0 -> 8 [send] via NET/IB/2/GDRDMA
+node2:104:158 [0] NCCL INFO Ring 06 : 8 -> 0 [send] via NET/IB/2/GDRDMA
+node1:98:143 [0] NCCL INFO Ring 06 : 8 -> 0 [receive] via NET/IB/2/GDRDMA
+node1:99:172 [1] NCCL INFO Ring 07 : 1[1] -> 3[3] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 06 : 2[2] -> 3[3] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 07 : 8[0] -> 10[2] via P2P/IPC
+node2:105:181 [1] NCCL INFO Trees [0] 8->9->13/-1/-1 [1] 11->9->8/-1/-1 [2] 13->9->-1/-1/-1 [3] 10->9->11/-1/-1 [4] 8->9->13/-1/-1 [5] 11->9->8/-1/-1 [6] 13->9->-1/-1/-1 [7] 10->9->11/-1/-1
+node2:106:179 [2] NCCL INFO Ring 07 : 10[2] -> 8[0] via P2P/IPC
+node2:104:158 [0] NCCL INFO Ring 07 : 8[0] -> 12[4] via P2P/IPC
+node2:106:179 [2] NCCL INFO Trees [0] 2->10->8/-1/-1 [1] 14->10->11/-1/-1 [2] 11->10->14/-1/-1 [3] 8->10->9/-1/-1 [4] -1->10->8/2/-1 [5] 14->10->11/-1/-1 [6] 11->10->14/-1/-1 [7] 8->10->9/-1/-1
+node2:105:181 [1] NCCL INFO comm 0x7fcc5c002350 rank 9 nranks 16 cudaDev 1 nvmlDev 1 - Init COMPLETE
+node2:106:179 [2] NCCL INFO comm 0x7fc38c002350 rank 10 nranks 16 cudaDev 2 nvmlDev 2 - Init COMPLETE
+node1:102:178 [4] NCCL INFO Ring 06 : 4[4] -> 6[6] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 06 : 6[6] -> 2[2] via P2P/IPC
+node1:103:173 [5] NCCL INFO Ring 07 : 5 -> 12 [send] via NET/IB/3/GDRDMA
+node1:102:178 [4] NCCL INFO Ring 07 : 13 -> 4 [receive] via NET/IB/3/GDRDMA
+node1:101:176 [3] NCCL INFO Ring 07 : 3[3] -> 7[7] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 07 : 7[7] -> 6[6] via P2P/IPC
+node2:109:183 [5] NCCL INFO Ring 07 : 13[5] -> 14[6] via P2P/IPC
+node2:110:152 [6] NCCL INFO Trees [0] 12->14->15/-1/-1 [1] 6->14->10/-1/-1 [2] 10->14->12/-1/-1 [3] 15->14->13/-1/-1 [4] 12->14->15/-1/-1 [5] -1->14->10/6/-1 [6] 10->14->12/-1/-1 [7] 15->14->13/-1/-1
+node1:102:178 [4] NCCL INFO Ring 07 : 4[4] -> 0[0] via P2P/IPC
+node2:109:183 [5] NCCL INFO Trees [0] 9->13->12/-1/-1 [1] 12->13->15/-1/-1 [2] 15->13->9/-1/-1 [3] 14->13->-1/-1/-1 [4] 9->13->12/-1/-1 [5] 12->13->15/-1/-1 [6] 15->13->9/-1/-1 [7] 14->13->-1/-1/-1
+node1:98:143 [0] NCCL INFO Ring 07 : 0[0] -> 2[2] via P2P/IPC
+node2:104:158 [0] NCCL INFO Trees [0] 10->8->9/-1/-1 [1] 9->8->12/-1/-1 [2] 0->8->11/-1/-1 [3] 12->8->10/-1/-1 [4] 10->8->9/-1/-1 [5] 9->8->12/-1/-1 [6] -1->8->11/0/-1 [7] 12->8->10/-1/-1
+node2:108:178 [4] NCCL INFO Ring 07 : 4 -> 12 [receive] via NET/IB/3/GDRDMA
+node2:110:152 [6] NCCL INFO comm 0x7f576c002350 rank 14 nranks 16 cudaDev 6 nvmlDev 6 - Init COMPLETE
+node2:109:183 [5] NCCL INFO comm 0x7f109c002350 rank 13 nranks 16 cudaDev 5 nvmlDev 5 - Init COMPLETE
+node2:104:158 [0] NCCL INFO comm 0x7f29cc002350 rank 8 nranks 16 cudaDev 0 nvmlDev 0 - Init COMPLETE
+node1:100:177 [2] NCCL INFO Ring 07 : 2[2] -> 1[1] via P2P/IPC
+node1:104:174 [6] NCCL INFO Ring 07 : 6[6] -> 5[5] via P2P/IPC
+[node1:00088] 23 more processes have sent help message help-mpi-btl-openib.txt / default subnet prefix
+[node1:00088] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+node1:103:173 [5] NCCL INFO Ring 07 : 5[5] -> 6[6] via P2P/IPC
+node1:101:176 [3] NCCL INFO Ring 07 : 3[3] -> 1[1] via P2P/IPC
+node1:105:175 [7] NCCL INFO Ring 07 : 7[7] -> 3[3] via P2P/IPC
+node1:101:176 [3] NCCL INFO Trees [0] 7->3->-1/-1/-1 [1] 2->3->1/-1/-1 [2] 0->3->2/-1/-1 [3] 1->3->7/-1/-1 [4] 7->3->-1/-1/-1 [5] 2->3->1/-1/-1 [6] 0->3->2/-1/-1 [7] 1->3->7/-1/-1
+node1:103:173 [5] NCCL INFO Trees [0] 1->5->4/-1/-1 [1] 4->5->7/-1/-1 [2] 7->5->1/-1/-1 [3] 6->5->-1/-1/-1 [4] 1->5->4/-1/-1 [5] 4->5->7/-1/-1 [6] 7->5->1/-1/-1 [7] 6->5->-1/-1/-1
+node1:98:143 [0] NCCL INFO Ring 07 : 0[0] -> 4[4] via P2P/IPC
+node1:99:172 [1] NCCL INFO Ring 07 : 1[1] -> 2[2] via P2P/IPC
+node1:100:177 [2] NCCL INFO Ring 07 : 2[2] -> 0[0] via P2P/IPC
+node1:99:172 [1] NCCL INFO Trees [0] 0->1->5/-1/-1 [1] 3->1->0/-1/-1 [2] 5->1->-1/-1/-1 [3] 2->1->3/-1/-1 [4] 0->1->5/-1/-1 [5] 3->1->0/-1/-1 [6] 5->1->-1/-1/-1 [7] 2->1->3/-1/-1
+node1:98:143 [0] NCCL INFO Trees [0] 2->0->1/-1/-1 [1] 1->0->4/-1/-1 [2] -1->0->3/8/-1 [3] 4->0->2/-1/-1 [4] 2->0->1/-1/-1 [5] 1->0->4/-1/-1 [6] 8->0->3/-1/-1 [7] 4->0->2/-1/-1
+node1:98:143 [0] NCCL INFO Using 256 threads, Min Comp Cap 7, Trees enabled for all sizes
+node1:104:174 [6] NCCL INFO Ring 07 : 6[6] -> 7[7] via P2P/IPC
+node1:105:175 [7] NCCL INFO Trees [0] 6->7->3/-1/-1 [1] 5->7->-1/-1/-1 [2] 4->7->5/-1/-1 [3] 3->7->6/-1/-1 [4] 6->7->3/-1/-1 [5] 5->7->-1/-1/-1 [6] 4->7->5/-1/-1 [7] 3->7->6/-1/-1
+node1:100:177 [2] NCCL INFO Trees [0] -1->2->0/10/-1 [1] 6->2->3/-1/-1 [2] 3->2->6/-1/-1 [3] 0->2->1/-1/-1 [4] 10->2->0/-1/-1 [5] 6->2->3/-1/-1 [6] 3->2->6/-1/-1 [7] 0->2->1/-1/-1
+node1:104:174 [6] NCCL INFO Trees [0] 4->6->7/-1/-1 [1] -1->6->2/14/-1 [2] 2->6->4/-1/-1 [3] 7->6->5/-1/-1 [4] 4->6->7/-1/-1 [5] 14->6->2/-1/-1 [6] 2->6->4/-1/-1 [7] 7->6->5/-1/-1
+node1:102:178 [4] NCCL INFO Ring 07 : 4 -> 12 [send] via NET/IB/3/GDRDMA
+node1:101:176 [3] NCCL INFO comm 0x7fdfe8002350 rank 3 nranks 16 cudaDev 3 nvmlDev 3 - Init COMPLETE
+node1:103:173 [5] NCCL INFO comm 0x7f58bc002350 rank 5 nranks 16 cudaDev 5 nvmlDev 5 - Init COMPLETE
+node1:98:143 [0] NCCL INFO comm 0x7f1730002350 rank 0 nranks 16 cudaDev 0 nvmlDev 0 - Init COMPLETE
+node1:99:172 [1] NCCL INFO comm 0x7f0cb8002350 rank 1 nranks 16 cudaDev 1 nvmlDev 1 - Init COMPLETE
+#
+#                                             out-of-place                       in-place          
+#       size         count    type     time   algbw   busbw  error     time   algbw   busbw  error
+#        (B)    (elements)             (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)       
+node1:98:98 [0] NCCL INFO Launch mode Parallel
+node1:102:178 [4] NCCL INFO Ring 07 : 12 -> 4 [receive] via NET/IB/3/GDRDMA
+node1:104:174 [6] NCCL INFO comm 0x7ff81c002350 rank 6 nranks 16 cudaDev 6 nvmlDev 6 - Init COMPLETE
+node1:105:175 [7] NCCL INFO comm 0x7fdc68002350 rank 7 nranks 16 cudaDev 7 nvmlDev 7 - Init COMPLETE
+node1:100:177 [2] NCCL INFO comm 0x7f2c6c002350 rank 2 nranks 16 cudaDev 2 nvmlDev 2 - Init COMPLETE
+node2:108:178 [4] NCCL INFO Ring 07 : 12 -> 4 [send] via NET/IB/3/GDRDMA
+node2:108:178 [4] NCCL INFO Trees [0] 13->12->14/-1/-1 [1] 8->12->13/-1/-1 [2] 14->12->15/-1/-1 [3] 4->12->8/-1/-1 [4] 13->12->14/-1/-1 [5] 8->12->13/-1/-1 [6] 14->12->15/-1/-1 [7] -1->12->8/4/-1
+node2:108:178 [4] NCCL INFO comm 0x7f4aec002350 rank 12 nranks 16 cudaDev 4 nvmlDev 4 - Init COMPLETE
+node1:102:178 [4] NCCL INFO Trees [0] 5->4->6/-1/-1 [1] 0->4->5/-1/-1 [2] 6->4->7/-1/-1 [3] -1->4->0/12/-1 [4] 5->4->6/-1/-1 [5] 0->4->5/-1/-1 [6] 6->4->7/-1/-1 [7] 12->4->0/-1/-1
+node1:102:178 [4] NCCL INFO comm 0x7f5cd8002350 rank 4 nranks 16 cudaDev 4 nvmlDev 4 - Init COMPLETE
+           0             0   float     8.17    0.00    0.00  0e+00     5.62    0.00    0.00  0e+00
+           0             0   float     5.65    0.00    0.00  0e+00     4.94    0.00    0.00  0e+00
+           0             0   float     4.63    0.00    0.00  0e+00     5.42    0.00    0.00  0e+00
+          64             1   float    27.11    0.00    0.00  0e+00    21.62    0.00    0.00  0e+00
+         128             2   float    25.50    0.01    0.00  0e+00    22.11    0.01    0.01  0e+00
+         256             4   float    23.74    0.01    0.01  0e+00    21.20    0.01    0.01  0e+00
+         512             8   float    24.01    0.02    0.02  0e+00    20.76    0.02    0.02  0e+00
+        1024            16   float    24.84    0.04    0.04  0e+00    21.09    0.05    0.05  0e+00
+        2048            32   float    29.44    0.07    0.07  0e+00    23.48    0.09    0.08  0e+00
+        4096            64   float    26.77    0.15    0.14  0e+00    22.37    0.18    0.17  0e+00
+        8192           128   float    26.62    0.31    0.29  0e+00    23.29    0.35    0.33  0e+00
+       16384           256   float    33.28    0.49    0.46  0e+00    25.82    0.63    0.59  0e+00
+       32768           512   float    34.44    0.95    0.89  0e+00    29.39    1.12    1.05  0e+00
+       65536          1024   float    40.77    1.61    1.51  0e+00    38.21    1.72    1.61  0e+00
+      131072          2048   float    37.48    3.50    3.28  0e+00    34.24    3.83    3.59  0e+00
+      262144          4096   float    40.22    6.52    6.11  0e+00    43.06    6.09    5.71  0e+00
+      524288          8192   float    52.04   10.07    9.44  0e+00    50.10   10.47    9.81  0e+00
+     1048576         16384   float    76.86   13.64   12.79  0e+00    72.53   14.46   13.55  0e+00
+     2097152         32768   float    126.0   16.64   15.60  0e+00    119.2   17.59   16.49  0e+00
+     4194304         65536   float    228.1   18.39   17.24  0e+00    227.9   18.41   17.25  0e+00
+     8388608        131072   float    326.0   25.73   24.12  0e+00    322.9   25.98   24.36  0e+00
+    16777216        262144   float    533.9   31.42   29.46  0e+00    535.5   31.33   29.37  0e+00
+    33554432        524288   float    789.5   42.50   39.85  0e+00    784.8   42.75   40.08  0e+00
+    67108864       1048576   float   1558.6   43.06   40.37  0e+00   1402.8   47.84   44.85  0e+00
+   134217728       2097152   float   2822.9   47.55   44.57  0e+00   2710.6   49.52   46.42  0e+00
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 10.0333 
+#
+FINISH TRAINING
+nccl-test
+nccl-test
+FINISH ENV CLEAN-UP
